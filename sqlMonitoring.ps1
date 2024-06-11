@@ -9,7 +9,7 @@ while($true)
                 $ProcessID = $_.ID; [math]::Round((gwmi Win32_PerfFormattedData_PerfProc_Process | 
                         ? {$_.IDprocess -eq $ProcessID }).WorkingSetPrivate / 1Gb, 0)}}
 
-    if($sqlMemoryOcupied.'Private Working Se' -ge 1)
+    if($sqlMemoryOcupied.'Private Working Set' -ge 1)
     {
         if($sqlMemoryOcupied.'Private Working Se' / $physicalRAMMemory.Value * 100 -ge 80)
         {
