@@ -11,7 +11,7 @@ while($true)
 
     if($sqlMemoryOcupied.'Private Working Set' -ge 1)
     {
-        if($sqlMemoryOcupied.'Private Working Se' / $physicalRAMMemory.Value * 100 -ge 80)
+        if($sqlMemoryOcupied.'Private Working Se' / $physicalRAMMemory * 100 -ge 80)
         {
             $temp=get-process -Name sqlservr
             Write-Host "Start Killing Server"
