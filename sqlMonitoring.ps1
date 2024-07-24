@@ -11,7 +11,6 @@ while($true)
 
     if($sqlMemoryOcupied.'Private Working Set' -ge 1)
     {
-    Write-Host "Work"
         if($sqlMemoryOcupied.'Private Working Set' / $physicalRAMMemory * 100 -ge 80)
         {
             [int]$time24 = Get-Date -Format HH
