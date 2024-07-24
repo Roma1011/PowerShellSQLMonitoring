@@ -11,14 +11,24 @@ while($true)
 
     if($sqlMemoryOcupied.'Private Working Set' -ge 1)
     {
+    Write-Host "Work"
         if($sqlMemoryOcupied.'Private Working Set' / $physicalRAMMemory * 100 -ge 80)
         {
-            $temp=get-process -Name sqlservr
-            Write-Host "Start Killing Server"
-            $temp.Kill()
-            $temp.WaitForExit();
-            Write-Host "Start Server"
-            net start MSSQLSERVER
+            [int]$time24 = Get-Date -Format HH
+            if($time24 -eq 10)
+            {
+                Write-Host "It is not possible to restart the server because the calculations are running during this time interval 10:00 - 11:00"
+            }
+            else
+            {
+               $temp=get-process -Name sqlservr
+                Write-Host "Start Killing Server"
+                $temp.Kill()
+                $temp.WaitForExit();
+                Write-Host "Start Server"
+                net start MSSQLSERVER
+            }
+           
         }
     }
     Start-Sleep -s 15
