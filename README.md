@@ -38,4 +38,4 @@ The script checks if the SQL Server memory usage exceeds 80% of the total physic
 
 Restart SQL Server Process
 
-Sleep Interval
+Sleep Interval.
